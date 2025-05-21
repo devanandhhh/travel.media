@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:travel_media/core/colors/colors.dart';
 import 'package:travel_media/core/style/app_textstyle.dart';
+import 'package:travel_media/presentation/pages/auth/login_screen/login_screen.dart';
+import 'package:travel_media/presentation/pages/auth/signup_screen/signup_screen.dart';
 
 import '../widgets/custom_auth_button.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class CreateAccount extends StatelessWidget {
+  const CreateAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +39,17 @@ class LoginScreen extends StatelessWidget {
               ),
               Gap(40),
               CustomAuthButton(
+                function: () {},
                 color: kwhite,
                 withImage: true,
                 text: "Continue with google",
               ),
               Gap(30),
               CustomAuthButton(
+                  function: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (ctx) => SignupScreen()));
+                  },
                   color: primaryGreen,
                   withImage: false,
                   text: "Create an account"),
@@ -66,7 +73,8 @@ class LoginScreen extends StatelessWidget {
                           style:
                               AppTextStyles.aclonica(size: 15, color: kwhite),
                         ),
-                        onPressed: () {},
+                        onPressed: () => Navigator.push(context,
+                            MaterialPageRoute(builder: (ctx) => LoginScreen())),
                       ),
                     ],
                   ),

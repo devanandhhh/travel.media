@@ -20,4 +20,10 @@ class AppTextStyles {
       color: color,
     );
   }
+  static TextStyle acme({double size = 14, Color color = Colors.black,double letterSpacing=0}) {
+    return GoogleFonts.acme(
+      fontSize: size,letterSpacing: letterSpacing,
+      color: color,
+    );
+  }
 }

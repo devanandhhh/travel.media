@@ -1,0 +1,70 @@
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:travel_media/core/colors/colors.dart';
+import 'package:travel_media/core/style/app_textstyle.dart';
+import 'package:travel_media/presentation/pages/auth/widgets/custom_auth_button.dart';
+
+import '../widgets/custom_textfield.dart';
+
+class SignupScreen extends StatelessWidget {
+  SignupScreen({super.key});
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+  
+  final GlobalKey formkey =GlobalKey<FormState>();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: kblack,
+      appBar: AppBar(
+        backgroundColor: kblack,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(
+            Icons.arrow_back_ios_rounded,
+            color: kwhite,
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 20.0, right: 20, top: 20),
+        child: Form(
+          key: formkey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Join the Travel media Community",
+                style:
+                    AppTextStyles.acme(color: kwhite, letterSpacing: 2, size: 25),
+              ),
+              Gap(30),
+              CustomTextField(
+                controller: userNameController,
+                hintText: "Username",
+              ),
+              CustomTextField(controller: emailController, hintText: "Email id"),
+              CustomTextField(
+                  controller: phoneNumberController, hintText: "Phone number"),
+              CustomTextField(
+                  controller: passwordController, hintText: "Password"),
+              CustomTextField(
+                  controller: confirmPasswordController,
+                  hintText: "Confirm password"),
+              Gap(50),
+              CustomAuthButton(
+                  color: darkGreen,
+                  withImage: false,
+                  text: "Let's go",
+                  function: () {})
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

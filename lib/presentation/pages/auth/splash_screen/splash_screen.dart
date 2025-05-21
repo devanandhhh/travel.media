@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/colors/colors.dart';
-import '../../../core/style/app_textstyle.dart';
-import '../login_screen/login_screen.dart';
+import '../../../../core/colors/colors.dart';
+import '../../../../core/style/app_textstyle.dart';
+import '../create_account/create_account.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
         Navigator.pushReplacement(
           // ignore: use_build_context_synchronously
           context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()),
+          MaterialPageRoute(builder: (context) => const CreateAccount()),
         );
       });
     }
@@ -67,14 +67,14 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  void navigateAfterDelay(BuildContext context) async {
-    await Future.delayed(
-      const Duration(seconds: 3),
-    );
-    Navigator.pushReplacement(
-      // ignore: use_build_context_synchronously
-      context,
-      MaterialPageRoute(builder: (context) => LoginScreen()),
-    );
-  }
+  // void navigateAfterDelay(BuildContext context) async {
+  //   await Future.delayed(
+  //     const Duration(seconds: 3),
+  //   );
+  //   Navigator.pushReplacement(
+  //     // ignore: use_build_context_synchronously
+  //     context,
+  //     MaterialPageRoute(builder: (context) => C()),
+  //   );
+  // }
 }
