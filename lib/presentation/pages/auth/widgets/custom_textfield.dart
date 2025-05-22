@@ -7,10 +7,12 @@ import '../../../../core/style/app_textstyle.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
-      {super.key, required this.controller, required this.hintText});
+      {super.key, required this.controller, required this.hintText,required this.validationMethod,this.isNumber =false});
 
   final TextEditingController controller;
   final String hintText;
+  final String? Function(String?) validationMethod;
+  final bool isNumber;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,7 +24,9 @@ class CustomTextField extends StatelessWidget {
         ),
         Gap(10),
         TextFormField(
-          controller: controller,
+          keyboardType:isNumber? TextInputType.number:null,
+          controller: controller,maxLength:isNumber? 10:null,
+          validator:(_)=> validationMethod(controller.text),
           style: AppTextStyles.acme(color: kwhite),
           decoration: InputDecoration(
             border: OutlineInputBorder(),

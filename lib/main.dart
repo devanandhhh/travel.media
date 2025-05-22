@@ -13,13 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Travel.Media',
-  //     theme: ThemeData(
-  //   textSelectionTheme: TextSelectionThemeData(
-  //     selectionColor: Colors.green.withValues(alpha: 22,green: 22),
-  //     selectionHandleColor: Colors.green,
-  //     cursorColor: Colors.green,
-  //   ),
-  // ),
+  
       home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );

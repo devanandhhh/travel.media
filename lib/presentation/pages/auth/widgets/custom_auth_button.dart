@@ -25,17 +25,17 @@ class CustomAuthButton extends StatelessWidget {
         decoration:
             BoxDecoration(borderRadius: BorderRadius.circular(25), color: color),
         child: withImage
-            ? Row(
+            ? Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(2.0),
                     child: Image.asset("assets/icons/google_logo.png"),
                   ),
-                  Gap(20),
+                 Gap(10),
                   Text(
                     text,
                     style: AppTextStyles.aclonica(size: 20),
-                  )
+                  ),Gap(10)
                 ],
               )
             : Center(child: Text(text, style: AppTextStyles.aclonica(size: 20))),
