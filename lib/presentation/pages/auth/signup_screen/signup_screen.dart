@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:travel_media/core/colors/colors.dart';
 import 'package:travel_media/core/style/app_textstyle.dart';
+import 'package:travel_media/data/models/sign_up_model.dart';
 import 'package:travel_media/presentation/pages/auth/widgets/custom_auth_button.dart';
 import 'package:travel_media/presentation/utils/validator_service.dart';
 
@@ -86,9 +87,15 @@ class SignupScreen extends StatelessWidget {
                     text: "Let's go",
                     function: () {
                       if (formkey.currentState!.validate()) {
-                        log("values are here");
+                        final model = SignUpModel(
+                            userName: userNameController.text,
+                            email: emailController.text,
+                            phoneNumber: phoneNumberController.text,
+                            password: passwordController.text,
+                            confirmPassword: confirmPasswordController.text);
+                        log("values are here ${model.userName}");
                       } else {
-                        log("no values here");
+                        log("check fields");
                       }
                     })
               ],
